@@ -4,12 +4,10 @@
     <div>{{long}}</div>
     <h2>Essential Links</h2>
     <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
+      <!-- This was a static list, I've made it dynamic -->
+      <li v-for="link in links.essential" :key="link.href">
+        <a :href="link.href" target="_blank">{{link.label}}</a>
+      </li>
     </ul>
     <h2>Ecosystem</h2>
     <ul>
@@ -27,7 +25,14 @@ export default {
   data () {
     return {
       msg: 'Welcome to My Test Vue.js App',
-      long: 'This is a simple testbed for getting familiar with modifying Vue single-file components.'
+      long: 'This is a simple testbed for getting familiar with modifying Vue single-file components.',
+      links: {
+        essential: [
+          {href: 'https://www.latimes.com', label: 'Los Angeles Times'},
+          {href: 'https://www.newyorker.com', label: 'The New Yorker'},
+          {href: 'https://www.nytimes.com', label: 'New York Times'}
+        ]
+      }
     }
   }
 }
@@ -40,7 +45,7 @@ h1, h2 {
 }
 ul {
   list-style-type: none;
-  padding: 15px;
+  padding: 0;
 }
 li {
   display: inline-block;
