@@ -2,6 +2,8 @@
   <div id="app">
     <img src="./assets/logo.png">
     <router-view/>
+    <!-- So because I'm using vue-router here, this dynamically imports a component based on what's in src/router/index.js
+    somehow...? -->
   </div>
 </template>
 
